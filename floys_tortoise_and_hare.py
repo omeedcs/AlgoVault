@@ -40,3 +40,37 @@ def cycleDetectionLinkedList(head) -> bool:
             return True
     return False
 
+# what if you are asked for the head of the cycle? 
+# that wont be their intersection point.
+
+def getHeadOfCycle(head):
+    slow = head 
+    fast = head 
+    while fast and fast.next:
+        slow = slow.next 
+        fast = fast.next.next 
+        if slow == fast:
+            # cycle detected
+            break
+        
+        if not fast or not fast.next: 
+            return None
+
+        # start at the original head
+        slow2 = head 
+        # in this second phase, they are guaranteed 
+        # to meet at the head of the cycle.
+        while slow != slow2:
+            slow = slow.next
+            slow2 = slow2.next 
+        return slow
+    
+# so lets think... why does this work?
+# 2 * slow = fast
+# 2 * (P + C - X) = P + C + C - X
+# doing some basic algebra... 
+# P - X = 0
+# P = X 
+
+# this math guarantees that we will 
+# meet at the head. :)
