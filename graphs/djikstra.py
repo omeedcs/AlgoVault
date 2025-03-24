@@ -24,6 +24,7 @@ class Solution:
                 continue
             else:
                 shortest[node] = cost
+                
                 for nei, neiCost in graph[node]:
                     if nei in shortest:
                         continue

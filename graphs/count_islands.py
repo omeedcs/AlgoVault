@@ -33,7 +33,7 @@ def numIslands(self, grid):
     numIslands = 0
     for row in range(len(grid)): 
         for col in range(len(grid[0])): 
-            if grid[i][j] == "1":
+            if grid[row][col] == "1":
                 # we hit an instance of an island.
                 # if we're trying to find the entire island,
                 # the best algorithm here is an dfs.

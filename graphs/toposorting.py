@@ -12,6 +12,10 @@
 
 # Toposorting can also help us with cycle detection.
 
+# If a node has no incoming edges, it doesn't depend on any other node.
+# we call those incoming edges "in-degree".
+# THAT IS THE CORE IDEA OF KAHNS. 
+
 from collections import defaultdict
 from collections import deque
 

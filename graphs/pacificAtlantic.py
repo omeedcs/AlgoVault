@@ -14,6 +14,13 @@ def pacificAtlantic(self, heights):
     DIRECTIONS = [[0, 1], [1, 0], [0, -1], [-1, 0]]
     
     def dfs(row, col, oceanSet, prevHeight):
+        # really, the most complex part here was the base case. 
+        # and the intuition of using sets. 
+        # in the base case, we just literally want to see if the current
+        # node that we're traversing is less than the previous height, which 
+        # means that the direction that we just moved in is at a lower 
+        # altitude than the direction that we were previously at, which means
+        # in an IRL scenario, water can naturally flow.
         if (row, col) in oceanSet or row < 0 or col < 0 or row >= len(heights) or col >= len(heights[0]) or heights[row][col] < prevHeight:
             return
     
